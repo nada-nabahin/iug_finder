@@ -1,14 +1,43 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:iug_finder/core/di/dependency_injection.dart';
+import 'package:iug_finder/core/helpers/constants.dart';
+import 'package:iug_finder/core/helpers/extension.dart';
+import 'package:iug_finder/core/helpers/shared_pref_helper.dart';
 import 'package:iug_finder/core/routing/app_router.dart';
 import 'package:iug_finder/core/theming/colors.dart';
 
 import 'core/routing/routers.dart';
 
-void main() {
-  runApp(MyApp(
-    appRouter: AppRouter(),
-  ));
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setupGetIt();
+  await ScreenUtil.ensureScreenSize();
+  await EasyLocalization.ensureInitialized();
+  await checkIfLoggedInUser();
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('ar')],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en'),
+      startLocale: const Locale('ar'),
+      child: MyApp(
+        appRouter: AppRouter(),
+      ),
+    ),
+  );
+}
+
+checkIfLoggedInUser() async {
+  String? userToken =
+      await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
+  if (!userToken.isNullOrEmpty()) {
+    isLoggedInUser = true;
+  } else {
+    isLoggedInUser = false;
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -22,13 +51,18 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       child: MaterialApp(
-        title: 'IUG Finder',
+        title: tr('app_title'),
         theme: ThemeData(
             primaryColor: ColorsManager.mainBlue,
             scaffoldBackgroundColor: ColorsManager.white),
         debugShowCheckedModeBanner: false,
-        initialRoute: Routers.profileScreen,
+        // initialRoute: Routers.lostScreen,
+        initialRoute:
+            isLoggedInUser ? Routers.navigationBar : Routers.loginScreen,
         onGenerateRoute: appRouter.generateRoute,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
       ),
     );
   }

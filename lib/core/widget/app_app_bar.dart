@@ -6,7 +6,8 @@ import '../theming/styles.dart';
 
 class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
-  const AppAppBar({super.key, required this.title});
+  final PreferredSizeWidget? bottom;
+  const AppAppBar({super.key, required this.title, this.bottom});
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +27,10 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
           child: Text(title!, style: TextStyles.font18WightSemiBold),
         ),
       ),
+      bottom: bottom,
     );
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(130.h); // Set the preferred size
+  Size get preferredSize => Size.fromHeight(100.h); // Set the preferred size
 }

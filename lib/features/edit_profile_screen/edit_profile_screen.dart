@@ -1,10 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iug_finder/core/helpers/spacing.dart';
 import 'package:iug_finder/core/theming/colors.dart';
-import 'package:iug_finder/core/widget/app_text_button.dart';
 import 'package:iug_finder/core/widget/app_text_form_field.dart';
 
 class EditProfileScreen extends StatefulWidget {
@@ -96,11 +93,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         ),
                       ),
                       verticalSpace(50.h),
-                      AppTextButton(
-                        buttonText: ' حفط',
-                        buttonWidth: 300,
-                        onPressed: () {},
-                      )
+                      // AppTextButton(
+
+                      //   buttonText: ' حفط',
+                      //   buttonWidth: 300,
+                      //   onPressed: () {},
+                      // )
                     ],
                   ),
                 ),

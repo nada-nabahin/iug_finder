@@ -24,3 +24,8 @@ extension Navigation on BuildContext {
     Navigator.of(this).pushNamed(routeName, arguments: arguments);
   }
 }
+
+extension StringExtension on String? {
+  bool isNullOrEmpty() =>
+      this == null || this!.isEmpty || this == '' || this == "";
+}

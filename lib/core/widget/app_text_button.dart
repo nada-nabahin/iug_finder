@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iug_finder/core/theming/colors.dart';
 
-import '../theming/styles.dart';
+import '../theming/colors.dart';
 
 class AppTextButton extends StatelessWidget {
   final double? borderRadius;
@@ -12,6 +11,7 @@ class AppTextButton extends StatelessWidget {
   final double? buttonWidth;
   final double? buttonHeight;
   final String buttonText;
+  final TextStyle textStyle;
   final VoidCallback onPressed;
   const AppTextButton({
     super.key,
@@ -22,6 +22,7 @@ class AppTextButton extends StatelessWidget {
     this.buttonHeight,
     this.buttonWidth,
     required this.buttonText,
+    required this.textStyle,
     required this.onPressed,
   });
 
@@ -31,7 +32,7 @@ class AppTextButton extends StatelessWidget {
       style: ButtonStyle(
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 10.0),
+            borderRadius: BorderRadius.circular(borderRadius ?? 16.0),
           ),
         ),
         backgroundColor: MaterialStatePropertyAll(
@@ -39,7 +40,7 @@ class AppTextButton extends StatelessWidget {
         ),
         padding: MaterialStateProperty.all<EdgeInsets>(
           EdgeInsets.symmetric(
-            horizontal: horizontalPadding?.w ?? 24.w,
+            horizontal: horizontalPadding?.w ?? 12.w,
             vertical: verticalPadding?.h ?? 10.h,
           ),
         ),
@@ -50,7 +51,7 @@ class AppTextButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         buttonText,
-        style: TextStyles.font16WightMedium,
+        style: textStyle,
       ),
     );
   }

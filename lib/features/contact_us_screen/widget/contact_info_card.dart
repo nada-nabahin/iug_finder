@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iug_finder/core/helpers/spacing.dart';
@@ -48,19 +49,21 @@ class ContactInfoCard extends StatelessWidget {
             ),
           ),
           horizontalSpace(20),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                label,
-                style: TextStyles.font15BlackRegular,
-              ),
-              Text(
-                value,
-                style: TextStyles.font15BlackRegular,
-              ),
-            ],
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  label,
+                  style: TextStyles.font15BlackRegular,
+                ),
+                Text(
+                  value,
+                  style: TextStyles.font15BlackRegular,
+                ),
+              ],
+            ),
           ),
         ],
       ),
