@@ -2,6 +2,7 @@ import 'package:iug_finder/core/networking/api_error_handler.dart';
 import 'package:iug_finder/core/networking/api_result.dart';
 import 'package:iug_finder/core/networking/api_service.dart';
 import 'package:iug_finder/features/lost_and_my_lost/data/model/all_lost_body_response.dart';
+import 'package:iug_finder/features/lost_and_my_lost/data/model/delete_report_response.dart';
 
 class AllLostRepo {
   final ApiService _apiService;
@@ -27,10 +28,10 @@ class AllLostRepo {
   }
 
   // In AllLostRepo
-  Future<ApiResult<dynamic>> deleteReport(int reportId) async {
+  Future<ApiResult<DeleteReportResponse>> deleteReport(int reportId) async {
     try {
-      await _apiService.deleteReport(reportId);
-      return const ApiResult.success("تم حذف اليلاغ بنجاح");
+      final response = await _apiService.deleteReport(reportId);
+      return ApiResult.success(response);
     } catch (error) {
       return ApiResult.failure(ErrorHandler.handle(error));
     }

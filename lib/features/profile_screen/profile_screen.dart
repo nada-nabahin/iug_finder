@@ -7,17 +7,17 @@ import 'package:iug_finder/core/theming/colors.dart';
 import 'package:iug_finder/core/widget/app_text_button.dart';
 
 import '../../core/theming/styles.dart';
-import 'widget/custom_container_profile.dart';
+import 'ui/widget/custom_container_profile.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: SafeArea(
-        child: Container(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Container(
           width: double.infinity,
           height: double.infinity,
           decoration: const BoxDecoration(
@@ -72,7 +72,7 @@ class ProfileScreen extends StatelessWidget {
                 CustomContainer(
                   data: "بلاغاتي",
                   onPressed: () {
-                    context.pushNamed(Routers.contactUsScreen);
+                    context.pushNamed(Routers.myReportsScreen);
                   },
                 ),
                 Spacer(),

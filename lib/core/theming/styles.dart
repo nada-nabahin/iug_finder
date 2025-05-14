@@ -89,6 +89,11 @@ class TextStyles {
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.darkBlue,
   );
+  static TextStyle font12RedBlueRegular = GoogleFonts.cairo(
+    fontSize: 12.sp,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.red800,
+  );
 
   static TextStyle font15DarkBlueMedium = GoogleFonts.cairo(
     fontSize: 15.sp,

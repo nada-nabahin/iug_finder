@@ -101,8 +101,8 @@ class LostAndMyLostCubit extends Cubit<LostAndMyLostState> {
 
       final response = await _allLostRepo.deleteReport(reportId);
       response.when(
-        success: (message) {
-          emit(const LostAndMyLostState.deleteReportSuccess('تم الحذف بنجاح'));
+        success: (deleteReportResponse) {
+          emit(LostAndMyLostState.deleteReportSuccess(deleteReportResponse));
         },
         failure: (error) {
           // Revert on failure

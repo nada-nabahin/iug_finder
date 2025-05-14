@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-part 'navigation_bar_state.dart';
+import 'package:iug_finder/features/home/logic/cubit/navigation_bar_state.dart';
 
 class NavigationBarCubit extends Cubit<NavigationBarState> {
-  NavigationBarCubit() : super(const NavigationBarInitial(0));
+  NavigationBarCubit() : super(const NavigationBarState(selectedIndex: 0));
 
-  void setSelectedIndex(int index) {
-    emit(NavigationBarInitial(index));
+  // void setSelectedIndex(int index) {
+  //   emit(NavigationBarInitial(index));
+  // }
+
+  void updateIndex(int newIndex) {
+    if (newIndex != state.selectedIndex) {
+      emit(NavigationBarState(selectedIndex: newIndex));
+    }
   }
 }

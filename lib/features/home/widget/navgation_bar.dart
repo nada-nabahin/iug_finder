@@ -1,7 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iug_finder/core/theming/colors.dart';
 import 'package:iug_finder/features/home/logic/cubit/navigation_bar_cubit.dart';
+import 'package:iug_finder/features/home/logic/cubit/navigation_bar_state.dart';
 
 Widget navigationBar(BuildContext context) {
   return BlocBuilder<NavigationBarCubit, NavigationBarState>(
@@ -9,37 +12,47 @@ Widget navigationBar(BuildContext context) {
       return NavigationBar(
         selectedIndex: state.selectedIndex,
         onDestinationSelected: (index) {
-          context.read<NavigationBarCubit>().setSelectedIndex(index);
+          context.read<NavigationBarCubit>().updateIndex(index);
         },
-        destinations: const [
+        height: 65.h,
+        labelBehavior:
+            NavigationDestinationLabelBehavior.alwaysShow, // Always show labels
+
+        destinations: [
           NavigationDestination(
-            icon: Icon(
+            icon: const Icon(
               Icons.home_outlined,
               color: ColorsManager.moreLightBlue,
             ),
-            label: 'Home',
-            selectedIcon: Icon(Icons.home, color: ColorsManager.moreLightBlue),
+            label: tr(
+              'home_nav_bar',
+            ),
+            selectedIcon:
+                const Icon(Icons.home, color: ColorsManager.moreLightBlue),
           ),
           NavigationDestination(
-            icon: Icon(Icons.notifications_outlined,
+            icon: const Icon(Icons.notifications_outlined,
                 color: ColorsManager.moreLightBlue),
-            label: 'Notifications',
-            selectedIcon:
-                Icon(Icons.notifications, color: ColorsManager.moreLightBlue),
+            label: tr('notifications'),
+            selectedIcon: const Icon(Icons.notifications,
+                color: ColorsManager.moreLightBlue),
           ),
           NavigationDestination(
-            icon: Icon(Icons.call_outlined, color: ColorsManager.moreLightBlue),
-            label: 'Contact',
-            selectedIcon: Icon(Icons.call, color: ColorsManager.moreLightBlue),
+            icon: const Icon(Icons.call_outlined,
+                color: ColorsManager.moreLightBlue),
+            label: tr('contact'),
+            selectedIcon:
+                const Icon(Icons.call, color: ColorsManager.moreLightBlue),
           ),
           NavigationDestination(
-            icon:
-                Icon(Icons.person_outline, color: ColorsManager.moreLightBlue),
-            label: 'Profile',
+            icon: const Icon(Icons.person_outline,
+                color: ColorsManager.moreLightBlue),
+            label: tr('profile'),
             selectedIcon:
-                Icon(Icons.person, color: ColorsManager.moreLightBlue),
+                const Icon(Icons.person, color: ColorsManager.moreLightBlue),
           ),
         ],
+        animationDuration: const Duration(milliseconds: 300),
       );
     },
   );

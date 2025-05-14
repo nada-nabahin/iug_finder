@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:iug_finder/core/networking/api_error_handler.dart';
 import 'package:iug_finder/features/lost_and_my_lost/data/model/all_lost_body_response.dart';
+import 'package:iug_finder/features/lost_and_my_lost/data/model/delete_report_response.dart';
 
 part 'lost_and_my_lost_state.freezed.dart';
 
@@ -22,8 +23,8 @@ class LostAndMyLostState with _$LostAndMyLostState {
       ErrorHandler errorHandler) = AllMyReportsError;
   //  states for delete operations
   const factory LostAndMyLostState.deleteReportLoading() = DeleteReportLoading;
-  const factory LostAndMyLostState.deleteReportSuccess(String message) =
-      DeleteReportSuccess;
+  const factory LostAndMyLostState.deleteReportSuccess(
+      DeleteReportResponse deleteReportResponse) = DeleteReportSuccess;
   const factory LostAndMyLostState.deleteReportError(
       ErrorHandler errorHandler) = DeleteReportError;
 }

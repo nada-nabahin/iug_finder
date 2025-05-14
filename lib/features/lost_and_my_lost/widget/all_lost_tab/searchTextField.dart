@@ -1,10 +1,9 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iug_finder/core/helpers/spacing.dart';
 import 'package:iug_finder/core/widget/app_text_form.dart';
 import 'package:iug_finder/features/lost_and_my_lost/logic/cubit/lost_and_my_lost_cubit.dart';
 
@@ -50,11 +49,11 @@ class _SearchTextFieldState extends State<SearchTextField> {
       padding: EdgeInsets.all(16.w),
       child: AppTextFormField2(
         controller: cubit.searchController,
-        hintText: 'ابحث عن المفقودات',
+        hintText: tr('search_for_reports'),
         backgroundColor: const Color(0xffC7EDF7),
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return 'يرجى إدخال نص للبحث';
+            return tr('input_text_to_search');
           }
           return null;
         },

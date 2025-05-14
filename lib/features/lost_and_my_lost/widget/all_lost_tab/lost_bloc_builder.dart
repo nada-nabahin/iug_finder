@@ -1,6 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iug_finder/core/theming/colors.dart';
+import 'package:iug_finder/core/theming/styles.dart';
 import 'package:iug_finder/features/lost_and_my_lost/logic/cubit/lost_and_my_lost_cubit.dart';
 import 'package:iug_finder/features/lost_and_my_lost/logic/cubit/lost_and_my_lost_state.dart';
 import 'package:iug_finder/features/lost_and_my_lost/widget/all_lost_tab/lost_reports_list_view.dart';
@@ -46,8 +47,11 @@ class LostBlocBuilder extends StatelessWidget {
   }
 
   Widget setupError() {
-    return const SizedBox.shrink(
-      child: Text("حدث خطا ما .."),
+    return SizedBox.shrink(
+      child: Text(
+        tr('something_wrong'),
+        style: TextStyles.font14BlackMedium,
+      ),
     );
   }
 }

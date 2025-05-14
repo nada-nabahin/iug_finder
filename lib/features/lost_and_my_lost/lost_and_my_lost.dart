@@ -1,13 +1,17 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iug_finder/core/theming/colors.dart';
 import 'package:iug_finder/core/theming/styles.dart';
+import 'package:iug_finder/core/widget/app_app_bar.dart';
 import 'package:iug_finder/features/lost_and_my_lost/logic/cubit/lost_and_my_lost_cubit.dart';
 import 'package:iug_finder/features/lost_and_my_lost/widget/all_lost_tab/lost_tab_screen.dart';
 import 'package:iug_finder/features/lost_and_my_lost/widget/my_lost_tab/my_lost_tab_screen.dart';
 
 class LostAndMyLost extends StatefulWidget {
-  const LostAndMyLost({super.key});
+  final int initialTabIndex;
+
+  const LostAndMyLost({super.key, this.initialTabIndex = 0});
 
   @override
   State<LostAndMyLost> createState() => _LostAndMyLostState();
@@ -20,7 +24,10 @@ class _LostAndMyLostState extends State<LostAndMyLost>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
+    _tabController = TabController(
+      length: 2, vsync: this,
+      initialIndex: widget.initialTabIndex, // Set the initial tab index
+    );
     _tabController.addListener(_handleTabChange);
   }
 
@@ -47,34 +54,17 @@ class _LostAndMyLostState extends State<LostAndMyLost>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            'البلاغات',
-            style: TextStyles.font18DarkBlueBold,
-          ),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  ColorsManager
-                      .mainBlue, // Replace with your gradient start color
-                  ColorsManager
-                      .lightBlue, // Replace with your gradient start color
-                ],
-              ),
-            ),
-          ),
+        appBar: AppAppBar(
+          title: tr('reports'),
           bottom: TabBar(
             controller: _tabController,
 
             indicatorColor: Colors.white, // Tab indicator color
             indicatorWeight: 5.0, // Thickness of the indicator
             labelStyle: TextStyles.font18WightSemiBold,
-            tabs: const [
-              Tab(text: 'البلاغات'),
-              Tab(text: 'بلاغاتي'),
+            tabs: [
+              Tab(text: tr('reports')),
+              Tab(text: tr('my_reports')),
             ],
           ),
         ),

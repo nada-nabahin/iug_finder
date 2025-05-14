@@ -9,30 +9,31 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const AppAppBar(
-        title: 'الإشعارات',
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppAppBar(
+          title: 'الإشعارات',
+        ),
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30.h, vertical: 10.h),
+          child: Directionality(
+              textDirection: TextDirection.rtl,
+              child: ListView.builder(
+                itemCount: 20, // list.length (api)
+                shrinkWrap: true,
+                itemBuilder: (BuildContext context, int index) {
+                  return Padding(
+                    padding: EdgeInsets.only(bottom: 20.h),
+                    child: const NotificationInfoCard(
+                      label: 'مكتب الأمانات',
+                      value: ' غرضك',
+                      iconPath: 'assets/images/user_cicrle.png',
+                    ),
+                  );
+                },
+              )),
+        ),
       ),
-      body: SafeArea(
-          child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30.h, vertical: 10.h),
-        child: Directionality(
-            textDirection: TextDirection.rtl,
-            child: ListView.builder(
-              itemCount: 20, // list.length (api)
-              shrinkWrap: true,
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: EdgeInsets.only(bottom: 20.h),
-                  child: const NotificationInfoCard(
-                    label: 'مكتب الأمانات',
-                    value: ' غرضك',
-                    iconPath: 'assets/images/user_cicrle.png',
-                  ),
-                );
-              },
-            )),
-      )),
     );
   }
 }

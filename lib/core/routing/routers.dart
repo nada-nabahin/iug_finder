@@ -9,4 +9,8 @@ class Routers {
   static const String navigationBar = '/navigationBar';
   static const String lostScreen = '/lostScreen';
   static const String myReportsScreen = '/myReportsScreen';
+  static const String createReportScreen = '/createReportScreen';
+  static const String editReportScreen = '/editReportScreen';
+  static const String navigationBarAdmin = '/navigationBarAdmin';
+  static const String lostScreenAdmin = '/lostScreen';
 }

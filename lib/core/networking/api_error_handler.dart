@@ -133,6 +133,8 @@ ApiErrorModel _handleError(DioException error) {
           error.response?.statusMessage != null) {
         return ApiErrorModel.fromJson(error.response!.data);
       } else {
+        print("Raw error response: ${error.response?.data}");
+
         return DataSource.DEFAULT.getFailure();
       }
     case DioExceptionType.unknown:
@@ -141,6 +143,8 @@ ApiErrorModel _handleError(DioException error) {
           error.response?.statusMessage != null) {
         return ApiErrorModel.fromJson(error.response!.data);
       } else {
+        print("Raw error response: ${error.response?.data}");
+
         return DataSource.DEFAULT.getFailure();
       }
     case DioExceptionType.cancel:

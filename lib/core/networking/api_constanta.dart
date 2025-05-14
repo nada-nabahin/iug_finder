@@ -1,10 +1,17 @@
 class ApiConstanta {
-  static const String apiBaseUrl = 'http://10.0.2.2:3000/api';
+  static const String apiBaseUrl = 'http://11.11.11.74:3000/api';
+  // static const String apiBaseUrl = 'http://10.0.2.2:3000/api';
   static const String login = '/auth/login';
   static const String register = '/auth/register';
   static const String allLost = '/reports/lost';
   static const String myReports = '/reports';
   static const String deleteReport = '/reports';
+  static const String createReport = '/reports';
+  static const String editReport = '/reports';
+  static const String getUserData = '/auth/user';
+  static const String editUserData = '/auth/user';
+  //admin
+  static const String allFound = '/reports/existing';
 }
 
 class ApiErrors {

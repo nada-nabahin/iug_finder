@@ -17,6 +17,7 @@ class AppTextFormField2 extends StatelessWidget {
   final Color? backgroundColor;
   final TextEditingController? controller;
   final String? Function(String?)? validator;
+  final int? maxLines;
   const AppTextFormField2({
     super.key,
     this.contentPadding,
@@ -29,6 +30,7 @@ class AppTextFormField2 extends StatelessWidget {
     this.suffixIcon,
     this.backgroundColor,
     this.controller,
+    this.maxLines,
     required this.validator,
   });
 
@@ -37,7 +39,7 @@ class AppTextFormField2 extends StatelessWidget {
     return TextFormField(
       controller: controller,
       decoration: InputDecoration(
-        isDense: true,
+        isDense: maxLines == null || maxLines == 1,
         contentPadding: contentPadding ??
             EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
         focusedBorder: focusedBorder ??
@@ -77,6 +79,7 @@ class AppTextFormField2 extends StatelessWidget {
         filled: true,
       ),
       obscureText: isObscureText ?? false,
+      maxLines: maxLines ?? 1,
       validator: (value) {
         return validator!(value);
       },

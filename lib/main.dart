@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iug_finder/core/di/dependency_injection.dart';
 import 'package:iug_finder/core/helpers/constants.dart';
@@ -16,7 +17,14 @@ void main() async {
   await ScreenUtil.ensureScreenSize();
   await EasyLocalization.ensureInitialized();
   await checkIfLoggedInUser();
-
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: ColorsManager.mainBlue, // Set your desired color
+      statusBarIconBrightness:
+          Brightness.light, // Light icons for dark background
+      statusBarBrightness: Brightness.dark, // For iOS
+    ),
+  );
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('en'), Locale('ar')],
@@ -33,10 +41,18 @@ void main() async {
 checkIfLoggedInUser() async {
   String? userToken =
       await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken);
+  String? userRole = await SharedPrefHelper.getSecuredString(
+      SharedPrefKeys.role); // Add user role check
+
+  print('User Token: $userToken'); // Debugging
+  print('User Role: $userRole'); // Debugging
+
   if (!userToken.isNullOrEmpty()) {
     isLoggedInUser = true;
+    isAdminUser = userRole == 'admin';
   } else {
     isLoggedInUser = false;
+    isAdminUser = false;
   }
 }
 
@@ -56,9 +72,10 @@ class MyApp extends StatelessWidget {
             primaryColor: ColorsManager.mainBlue,
             scaffoldBackgroundColor: ColorsManager.white),
         debugShowCheckedModeBanner: false,
-        // initialRoute: Routers.lostScreen,
-        initialRoute:
-            isLoggedInUser ? Routers.navigationBar : Routers.loginScreen,
+        // initialRoute: Routers.navigationBarAdmin,
+        initialRoute: isLoggedInUser
+            ? (isAdminUser ? Routers.navigationBarAdmin : Routers.navigationBar)
+            : Routers.loginScreen,
         onGenerateRoute: appRouter.generateRoute,
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,

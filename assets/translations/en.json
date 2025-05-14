@@ -20,5 +20,18 @@
     "confirm_password": "Confirm Password",
     "phone_number": "Phone Number",
     "id_number": "ID Number",
-    "already_have_account": "Already have an account?"
+    "already_have_account": "Already have an account?",
+    "reports": "reports",
+    "my_reports": "my_reports",
+    "search_for_reports": "search_for_reports",
+    "input_text_to_search": "input_text_to_search",
+    "something_wrong": "something_wrong",
+    "delete_report": "delete_report",
+    "confirm_delete_report": "confirm_delete_report",
+    "cancel": "cancel",
+    "home_nav_bar": "Home",
+    "notifications": "Notifications",
+    "contact": "Contact",
+    "profile": "Profile"
+
   }

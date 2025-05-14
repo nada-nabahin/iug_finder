@@ -48,11 +48,17 @@ class SignupBlocListener extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Signup Successful'),
-          content: const SingleChildScrollView(
+          title: Text(
+            'تم التسجيل بنجاح',
+            style: TextStyles.font14BlackMedium,
+          ),
+          content: SingleChildScrollView(
             child: ListBody(
               children: <Widget>[
-                Text('Congratulations, you have signed up successfully!'),
+                Text(
+                  'تم التسجيل بنجاح، يمكنك الآن تسجيل الدخول',
+                  style: TextStyles.font14BlackMedium,
+                ),
               ],
             ),
           ),
@@ -66,7 +72,10 @@ class SignupBlocListener extends StatelessWidget {
               onPressed: () {
                 context.pushNamed(Routers.loginScreen);
               },
-              child: const Text('Continue'),
+              child: Text(
+                'استمرار',
+                style: TextStyles.font16WightMedium,
+              ),
             ),
           ],
         );
@@ -94,7 +103,7 @@ class SignupBlocListener extends StatelessWidget {
               context.pop();
             },
             child: Text(
-              'Got it',
+              'حسناً',
               style: TextStyles.font14BlueSemiBold,
             ),
           ),

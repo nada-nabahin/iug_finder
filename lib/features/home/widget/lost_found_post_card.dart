@@ -1,6 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:iug_finder/core/helpers/extension.dart';
+import 'package:iug_finder/core/routing/routers.dart';
 import 'package:iug_finder/core/theming/colors.dart';
 import 'package:iug_finder/core/theming/styles.dart';
 import 'package:iug_finder/features/lost_and_my_lost/data/model/all_lost_body_response.dart';
@@ -9,13 +12,11 @@ import 'package:iug_finder/features/lost_and_my_lost/logic/cubit/lost_and_my_los
 class LostFoundPostCard extends StatelessWidget {
   final Report? reportsModel;
   final bool isMyReport;
-  final void Function()? onDeleteTap;
 
   const LostFoundPostCard({
     super.key,
     this.reportsModel,
     required this.isMyReport,
-    this.onDeleteTap,
   });
 
   @override
@@ -65,22 +66,45 @@ class LostFoundPostCard extends StatelessWidget {
                 children: [
                   if (isMyReport)
                     GestureDetector(
+                      onTap: () => context.pushNamed(
+                        Routers.editReportScreen,
+                        arguments: reportsModel,
+                      ),
+                      child: const Padding(
+                        padding: EdgeInsets.only(left: 8.0),
+                        child: Icon(
+                          Icons.edit,
+                          color: ColorsManager.lightBlue,
+                          size: 28,
+                        ),
+                      ),
+                    ),
+                  if (isMyReport)
+                    GestureDetector(
                       onTap: () async {
                         final confirmed = await showDialog<bool>(
                           context: context,
                           builder: (context) => AlertDialog(
-                            title: const Text('حذف البلاغ'),
-                            content: const Text(
-                                'هل أنت متأكد من رغبتك في حذف هذا البلاغ؟'),
+                            title: Text(
+                              tr('delete_report'),
+                              style: TextStyles.font15DarkBlueMedium,
+                            ),
+                            content: Text(
+                              tr('confirm_delete_report'),
+                              style: TextStyles.font14BlackMedium,
+                            ),
                             actions: [
                               TextButton(
                                 onPressed: () => Navigator.pop(context, false),
-                                child: const Text('إلغاء'),
+                                child: Text(
+                                  tr('cancel'),
+                                  style: TextStyles.font12DarkBlueRegular,
+                                ),
                               ),
                               TextButton(
                                 onPressed: () => Navigator.pop(context, true),
-                                child: const Text('حذف',
-                                    style: TextStyle(color: Colors.red)),
+                                child: Text(tr('delete_report'),
+                                    style: TextStyles.font12RedBlueRegular),
                               ),
                             ],
                           ),
@@ -133,10 +157,23 @@ class LostFoundPostCard extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.network(
-                'http://10.0.2.2:3000/uploads/${reportsModel!.photo}',
+                'http://11.11.11.74:3000/uploads/${reportsModel!.photo}',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: 200,
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) {
+                    return child; // Image has loaded
+                  }
+                  return Center(
+                    child: CircularProgressIndicator(
+                      value: loadingProgress.expectedTotalBytes != null
+                          ? loadingProgress.cumulativeBytesLoaded /
+                              (loadingProgress.expectedTotalBytes ?? 1)
+                          : null, // Show progress if available
+                    ),
+                  );
+                },
               ),
             ),
           const SizedBox(height: 12),
@@ -145,7 +182,6 @@ class LostFoundPostCard extends StatelessWidget {
             'الوصف: ${reportsModel?.description ?? 'لا يوجد وصف'}',
             style: TextStyles.font14BlackMedium,
           ),
-          const SizedBox(height: 8),
           // Location
           Text(
             'المكان: ${reportsModel?.location ?? 'غير معروف'}',

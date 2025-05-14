@@ -28,7 +28,8 @@ mixin _$LostAndMyLostState {
         allMyReportsSuccess,
     required TResult Function(ErrorHandler errorHandler) allMyReportsError,
     required TResult Function() deleteReportLoading,
-    required TResult Function(String message) deleteReportSuccess,
+    required TResult Function(DeleteReportResponse deleteReportResponse)
+        deleteReportSuccess,
     required TResult Function(ErrorHandler errorHandler) deleteReportError,
   }) =>
       throw _privateConstructorUsedError;
@@ -44,7 +45,8 @@ mixin _$LostAndMyLostState {
         allMyReportsSuccess,
     TResult? Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult? Function()? deleteReportLoading,
-    TResult? Function(String message)? deleteReportSuccess,
+    TResult? Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult? Function(ErrorHandler errorHandler)? deleteReportError,
   }) =>
       throw _privateConstructorUsedError;
@@ -60,7 +62,8 @@ mixin _$LostAndMyLostState {
         allMyReportsSuccess,
     TResult Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult Function()? deleteReportLoading,
-    TResult Function(String message)? deleteReportSuccess,
+    TResult Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult Function(ErrorHandler errorHandler)? deleteReportError,
     required TResult orElse(),
   }) =>
@@ -176,7 +179,8 @@ class _$InitialImpl implements _Initial {
         allMyReportsSuccess,
     required TResult Function(ErrorHandler errorHandler) allMyReportsError,
     required TResult Function() deleteReportLoading,
-    required TResult Function(String message) deleteReportSuccess,
+    required TResult Function(DeleteReportResponse deleteReportResponse)
+        deleteReportSuccess,
     required TResult Function(ErrorHandler errorHandler) deleteReportError,
   }) {
     return initial();
@@ -195,7 +199,8 @@ class _$InitialImpl implements _Initial {
         allMyReportsSuccess,
     TResult? Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult? Function()? deleteReportLoading,
-    TResult? Function(String message)? deleteReportSuccess,
+    TResult? Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult? Function(ErrorHandler errorHandler)? deleteReportError,
   }) {
     return initial?.call();
@@ -214,7 +219,8 @@ class _$InitialImpl implements _Initial {
         allMyReportsSuccess,
     TResult Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult Function()? deleteReportLoading,
-    TResult Function(String message)? deleteReportSuccess,
+    TResult Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult Function(ErrorHandler errorHandler)? deleteReportError,
     required TResult orElse(),
   }) {
@@ -332,7 +338,8 @@ class _$AllLostLoadingImpl implements AllLostLoading {
         allMyReportsSuccess,
     required TResult Function(ErrorHandler errorHandler) allMyReportsError,
     required TResult Function() deleteReportLoading,
-    required TResult Function(String message) deleteReportSuccess,
+    required TResult Function(DeleteReportResponse deleteReportResponse)
+        deleteReportSuccess,
     required TResult Function(ErrorHandler errorHandler) deleteReportError,
   }) {
     return allLostLoading();
@@ -351,7 +358,8 @@ class _$AllLostLoadingImpl implements AllLostLoading {
         allMyReportsSuccess,
     TResult? Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult? Function()? deleteReportLoading,
-    TResult? Function(String message)? deleteReportSuccess,
+    TResult? Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult? Function(ErrorHandler errorHandler)? deleteReportError,
   }) {
     return allLostLoading?.call();
@@ -370,7 +378,8 @@ class _$AllLostLoadingImpl implements AllLostLoading {
         allMyReportsSuccess,
     TResult Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult Function()? deleteReportLoading,
-    TResult Function(String message)? deleteReportSuccess,
+    TResult Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult Function(ErrorHandler errorHandler)? deleteReportError,
     required TResult orElse(),
   }) {
@@ -517,7 +526,8 @@ class _$AllLostSuccessImpl implements AllLostSuccess {
         allMyReportsSuccess,
     required TResult Function(ErrorHandler errorHandler) allMyReportsError,
     required TResult Function() deleteReportLoading,
-    required TResult Function(String message) deleteReportSuccess,
+    required TResult Function(DeleteReportResponse deleteReportResponse)
+        deleteReportSuccess,
     required TResult Function(ErrorHandler errorHandler) deleteReportError,
   }) {
     return allLostSuccess(allLostBodyResponseModel);
@@ -536,7 +546,8 @@ class _$AllLostSuccessImpl implements AllLostSuccess {
         allMyReportsSuccess,
     TResult? Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult? Function()? deleteReportLoading,
-    TResult? Function(String message)? deleteReportSuccess,
+    TResult? Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult? Function(ErrorHandler errorHandler)? deleteReportError,
   }) {
     return allLostSuccess?.call(allLostBodyResponseModel);
@@ -555,7 +566,8 @@ class _$AllLostSuccessImpl implements AllLostSuccess {
         allMyReportsSuccess,
     TResult Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult Function()? deleteReportLoading,
-    TResult Function(String message)? deleteReportSuccess,
+    TResult Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult Function(ErrorHandler errorHandler)? deleteReportError,
     required TResult orElse(),
   }) {
@@ -707,7 +719,8 @@ class _$AllLostErrorImpl implements AllLostError {
         allMyReportsSuccess,
     required TResult Function(ErrorHandler errorHandler) allMyReportsError,
     required TResult Function() deleteReportLoading,
-    required TResult Function(String message) deleteReportSuccess,
+    required TResult Function(DeleteReportResponse deleteReportResponse)
+        deleteReportSuccess,
     required TResult Function(ErrorHandler errorHandler) deleteReportError,
   }) {
     return allLostError(errorHandler);
@@ -726,7 +739,8 @@ class _$AllLostErrorImpl implements AllLostError {
         allMyReportsSuccess,
     TResult? Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult? Function()? deleteReportLoading,
-    TResult? Function(String message)? deleteReportSuccess,
+    TResult? Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult? Function(ErrorHandler errorHandler)? deleteReportError,
   }) {
     return allLostError?.call(errorHandler);
@@ -745,7 +759,8 @@ class _$AllLostErrorImpl implements AllLostError {
         allMyReportsSuccess,
     TResult Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult Function()? deleteReportLoading,
-    TResult Function(String message)? deleteReportSuccess,
+    TResult Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult Function(ErrorHandler errorHandler)? deleteReportError,
     required TResult orElse(),
   }) {
@@ -870,7 +885,8 @@ class _$AllMyReportsLoadingImpl implements AllMyReportsLoading {
         allMyReportsSuccess,
     required TResult Function(ErrorHandler errorHandler) allMyReportsError,
     required TResult Function() deleteReportLoading,
-    required TResult Function(String message) deleteReportSuccess,
+    required TResult Function(DeleteReportResponse deleteReportResponse)
+        deleteReportSuccess,
     required TResult Function(ErrorHandler errorHandler) deleteReportError,
   }) {
     return allMyReportsLoading();
@@ -889,7 +905,8 @@ class _$AllMyReportsLoadingImpl implements AllMyReportsLoading {
         allMyReportsSuccess,
     TResult? Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult? Function()? deleteReportLoading,
-    TResult? Function(String message)? deleteReportSuccess,
+    TResult? Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult? Function(ErrorHandler errorHandler)? deleteReportError,
   }) {
     return allMyReportsLoading?.call();
@@ -908,7 +925,8 @@ class _$AllMyReportsLoadingImpl implements AllMyReportsLoading {
         allMyReportsSuccess,
     TResult Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult Function()? deleteReportLoading,
-    TResult Function(String message)? deleteReportSuccess,
+    TResult Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult Function(ErrorHandler errorHandler)? deleteReportError,
     required TResult orElse(),
   }) {
@@ -1055,7 +1073,8 @@ class _$AllMyReportsSuccessImpl implements AllMyReportsSuccess {
         allMyReportsSuccess,
     required TResult Function(ErrorHandler errorHandler) allMyReportsError,
     required TResult Function() deleteReportLoading,
-    required TResult Function(String message) deleteReportSuccess,
+    required TResult Function(DeleteReportResponse deleteReportResponse)
+        deleteReportSuccess,
     required TResult Function(ErrorHandler errorHandler) deleteReportError,
   }) {
     return allMyReportsSuccess(allLostBodyResponseModel);
@@ -1074,7 +1093,8 @@ class _$AllMyReportsSuccessImpl implements AllMyReportsSuccess {
         allMyReportsSuccess,
     TResult? Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult? Function()? deleteReportLoading,
-    TResult? Function(String message)? deleteReportSuccess,
+    TResult? Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult? Function(ErrorHandler errorHandler)? deleteReportError,
   }) {
     return allMyReportsSuccess?.call(allLostBodyResponseModel);
@@ -1093,7 +1113,8 @@ class _$AllMyReportsSuccessImpl implements AllMyReportsSuccess {
         allMyReportsSuccess,
     TResult Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult Function()? deleteReportLoading,
-    TResult Function(String message)? deleteReportSuccess,
+    TResult Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult Function(ErrorHandler errorHandler)? deleteReportError,
     required TResult orElse(),
   }) {
@@ -1246,7 +1267,8 @@ class _$AllMyReportsErrorImpl implements AllMyReportsError {
         allMyReportsSuccess,
     required TResult Function(ErrorHandler errorHandler) allMyReportsError,
     required TResult Function() deleteReportLoading,
-    required TResult Function(String message) deleteReportSuccess,
+    required TResult Function(DeleteReportResponse deleteReportResponse)
+        deleteReportSuccess,
     required TResult Function(ErrorHandler errorHandler) deleteReportError,
   }) {
     return allMyReportsError(errorHandler);
@@ -1265,7 +1287,8 @@ class _$AllMyReportsErrorImpl implements AllMyReportsError {
         allMyReportsSuccess,
     TResult? Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult? Function()? deleteReportLoading,
-    TResult? Function(String message)? deleteReportSuccess,
+    TResult? Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult? Function(ErrorHandler errorHandler)? deleteReportError,
   }) {
     return allMyReportsError?.call(errorHandler);
@@ -1284,7 +1307,8 @@ class _$AllMyReportsErrorImpl implements AllMyReportsError {
         allMyReportsSuccess,
     TResult Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult Function()? deleteReportLoading,
-    TResult Function(String message)? deleteReportSuccess,
+    TResult Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult Function(ErrorHandler errorHandler)? deleteReportError,
     required TResult orElse(),
   }) {
@@ -1409,7 +1433,8 @@ class _$DeleteReportLoadingImpl implements DeleteReportLoading {
         allMyReportsSuccess,
     required TResult Function(ErrorHandler errorHandler) allMyReportsError,
     required TResult Function() deleteReportLoading,
-    required TResult Function(String message) deleteReportSuccess,
+    required TResult Function(DeleteReportResponse deleteReportResponse)
+        deleteReportSuccess,
     required TResult Function(ErrorHandler errorHandler) deleteReportError,
   }) {
     return deleteReportLoading();
@@ -1428,7 +1453,8 @@ class _$DeleteReportLoadingImpl implements DeleteReportLoading {
         allMyReportsSuccess,
     TResult? Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult? Function()? deleteReportLoading,
-    TResult? Function(String message)? deleteReportSuccess,
+    TResult? Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult? Function(ErrorHandler errorHandler)? deleteReportError,
   }) {
     return deleteReportLoading?.call();
@@ -1447,7 +1473,8 @@ class _$DeleteReportLoadingImpl implements DeleteReportLoading {
         allMyReportsSuccess,
     TResult Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult Function()? deleteReportLoading,
-    TResult Function(String message)? deleteReportSuccess,
+    TResult Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult Function(ErrorHandler errorHandler)? deleteReportError,
     required TResult orElse(),
   }) {
@@ -1523,7 +1550,7 @@ abstract class _$$DeleteReportSuccessImplCopyWith<$Res> {
           $Res Function(_$DeleteReportSuccessImpl) then) =
       __$$DeleteReportSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({DeleteReportResponse deleteReportResponse});
 }
 
 /// @nodoc
@@ -1537,13 +1564,13 @@ class __$$DeleteReportSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? message = null,
+    Object? deleteReportResponse = null,
   }) {
     return _then(_$DeleteReportSuccessImpl(
-      null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
+      null == deleteReportResponse
+          ? _value.deleteReportResponse
+          : deleteReportResponse // ignore: cast_nullable_to_non_nullable
+              as DeleteReportResponse,
     ));
   }
 }
@@ -1551,14 +1578,14 @@ class __$$DeleteReportSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeleteReportSuccessImpl implements DeleteReportSuccess {
-  const _$DeleteReportSuccessImpl(this.message);
+  const _$DeleteReportSuccessImpl(this.deleteReportResponse);
 
   @override
-  final String message;
+  final DeleteReportResponse deleteReportResponse;
 
   @override
   String toString() {
-    return 'LostAndMyLostState.deleteReportSuccess(message: $message)';
+    return 'LostAndMyLostState.deleteReportSuccess(deleteReportResponse: $deleteReportResponse)';
   }
 
   @override
@@ -1566,11 +1593,12 @@ class _$DeleteReportSuccessImpl implements DeleteReportSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeleteReportSuccessImpl &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.deleteReportResponse, deleteReportResponse) ||
+                other.deleteReportResponse == deleteReportResponse));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(runtimeType, deleteReportResponse);
 
   @JsonKey(ignore: true)
   @override
@@ -1592,10 +1620,11 @@ class _$DeleteReportSuccessImpl implements DeleteReportSuccess {
         allMyReportsSuccess,
     required TResult Function(ErrorHandler errorHandler) allMyReportsError,
     required TResult Function() deleteReportLoading,
-    required TResult Function(String message) deleteReportSuccess,
+    required TResult Function(DeleteReportResponse deleteReportResponse)
+        deleteReportSuccess,
     required TResult Function(ErrorHandler errorHandler) deleteReportError,
   }) {
-    return deleteReportSuccess(message);
+    return deleteReportSuccess(deleteReportResponse);
   }
 
   @override
@@ -1611,10 +1640,11 @@ class _$DeleteReportSuccessImpl implements DeleteReportSuccess {
         allMyReportsSuccess,
     TResult? Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult? Function()? deleteReportLoading,
-    TResult? Function(String message)? deleteReportSuccess,
+    TResult? Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult? Function(ErrorHandler errorHandler)? deleteReportError,
   }) {
-    return deleteReportSuccess?.call(message);
+    return deleteReportSuccess?.call(deleteReportResponse);
   }
 
   @override
@@ -1630,12 +1660,13 @@ class _$DeleteReportSuccessImpl implements DeleteReportSuccess {
         allMyReportsSuccess,
     TResult Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult Function()? deleteReportLoading,
-    TResult Function(String message)? deleteReportSuccess,
+    TResult Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult Function(ErrorHandler errorHandler)? deleteReportError,
     required TResult orElse(),
   }) {
     if (deleteReportSuccess != null) {
-      return deleteReportSuccess(message);
+      return deleteReportSuccess(deleteReportResponse);
     }
     return orElse();
   }
@@ -1697,10 +1728,11 @@ class _$DeleteReportSuccessImpl implements DeleteReportSuccess {
 }
 
 abstract class DeleteReportSuccess implements LostAndMyLostState {
-  const factory DeleteReportSuccess(final String message) =
+  const factory DeleteReportSuccess(
+          final DeleteReportResponse deleteReportResponse) =
       _$DeleteReportSuccessImpl;
 
-  String get message;
+  DeleteReportResponse get deleteReportResponse;
   @JsonKey(ignore: true)
   _$$DeleteReportSuccessImplCopyWith<_$DeleteReportSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1782,7 +1814,8 @@ class _$DeleteReportErrorImpl implements DeleteReportError {
         allMyReportsSuccess,
     required TResult Function(ErrorHandler errorHandler) allMyReportsError,
     required TResult Function() deleteReportLoading,
-    required TResult Function(String message) deleteReportSuccess,
+    required TResult Function(DeleteReportResponse deleteReportResponse)
+        deleteReportSuccess,
     required TResult Function(ErrorHandler errorHandler) deleteReportError,
   }) {
     return deleteReportError(errorHandler);
@@ -1801,7 +1834,8 @@ class _$DeleteReportErrorImpl implements DeleteReportError {
         allMyReportsSuccess,
     TResult? Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult? Function()? deleteReportLoading,
-    TResult? Function(String message)? deleteReportSuccess,
+    TResult? Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult? Function(ErrorHandler errorHandler)? deleteReportError,
   }) {
     return deleteReportError?.call(errorHandler);
@@ -1820,7 +1854,8 @@ class _$DeleteReportErrorImpl implements DeleteReportError {
         allMyReportsSuccess,
     TResult Function(ErrorHandler errorHandler)? allMyReportsError,
     TResult Function()? deleteReportLoading,
-    TResult Function(String message)? deleteReportSuccess,
+    TResult Function(DeleteReportResponse deleteReportResponse)?
+        deleteReportSuccess,
     TResult Function(ErrorHandler errorHandler)? deleteReportError,
     required TResult orElse(),
   }) {

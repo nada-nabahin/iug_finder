@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iug_finder/core/theming/colors.dart';
+import 'package:iug_finder/core/theming/styles.dart';
 import 'package:iug_finder/features/lost_and_my_lost/logic/cubit/lost_and_my_lost_cubit.dart';
 import 'package:iug_finder/features/lost_and_my_lost/logic/cubit/lost_and_my_lost_state.dart';
 import 'package:iug_finder/features/lost_and_my_lost/widget/all_lost_tab/lost_reports_list_view.dart';
@@ -13,12 +15,18 @@ class MyReportsBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LostAndMyLostCubit, LostAndMyLostState>(
+      listenWhen: (previous, current) =>
+          current is DeleteReportSuccess ||
+          current is DeleteReportError ||
+          current is DeleteReportLoading,
+      // Listen for delete report success or error
       listener: (context, state) {
         state.whenOrNull(
-          deleteReportSuccess: (message) {
+          deleteReportSuccess: (deleteReportResponse) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text(message),
+                content: Text(deleteReportResponse.message),
+                behavior: SnackBarBehavior.floating,
                 backgroundColor: ColorsManager.green800,
               ),
             );
@@ -26,8 +34,10 @@ class MyReportsBlocBuilder extends StatelessWidget {
           deleteReportError: (error) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
-                content: Text('فشل الحذف: $error'),
-                backgroundColor: Colors.red,
+                // content: Text('فشل الحذف: $error'),
+                content: Text(error.toString()),
+                behavior: SnackBarBehavior.floating,
+                backgroundColor: ColorsManager.red800,
               ),
             );
           },
@@ -70,8 +80,11 @@ class MyReportsBlocBuilder extends StatelessWidget {
   }
 
   Widget setupError() {
-    return const SizedBox.shrink(
-      child: Text("sorry, something went wrong"),
+    return SizedBox.shrink(
+      child: Text(
+        tr('something_wrong'),
+        style: TextStyles.font14BlackMedium,
+      ),
     );
   }
 }

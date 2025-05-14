@@ -20,5 +20,18 @@
     "confirm_password": "تأكيد كلمة المرور",
     "phone_number": "رقم الهاتف",
     "id_number": "رقم الجامعي",
-    "already_have_account": "هل لديك حساب بالفعل؟"
+    "already_have_account": "هل لديك حساب بالفعل؟",
+    "reports": "البلاغات",
+    "my_reports": "بلاغاتي",
+    "search_for_reports": "ابحث عن المفقودات",
+    "input_text_to_search": "يرجى إدخال نص للبحث",
+    "something_wrong": "حدث خطا ما ..",
+    "delete_report": "حذف البلاغ",
+    "confirm_delete_report": "هل أنت متأكد من رغبتك في حذف هذا البلاغ؟",
+    "cancel": "إلغاء",
+    "home_nav_bar": "الرئيسية",
+    "notifications": "الاشعارات",
+    "contact": "التواصل",
+    "profile": "بروفايل"
+
   }
