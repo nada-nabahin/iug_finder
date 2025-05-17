@@ -23,13 +23,13 @@ class SignupCubit extends Cubit<SignupState> {
     emit(const SignupState.signupLoading());
     final response = await _signupRepo.signup(
       SignupRequestBody(
-        userName: nameController.text,
-        email: emailController.text,
-        phone: phoneController.text,
-        universityID: universityIDController.text,
-        password: passwordController.text,
-        confirmPassword: passwordConfirmationController.text,
-      ),
+          userName: nameController.text,
+          email: emailController.text,
+          phone: phoneController.text,
+          universityID: universityIDController.text,
+          password: passwordController.text,
+          confirmPassword: passwordConfirmationController.text,
+          photo: "1747485964673-448835708.jpg"),
     );
     response.when(success: (signupResponse) {
       emit(SignupState.signupSuccess(signupResponse));

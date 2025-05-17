@@ -5,6 +5,8 @@ import 'package:iug_finder/features/admin/home/logic/cubit/navigation_bar_cubit.
 import 'package:iug_finder/features/admin/home/navigation_bar.dart';
 import 'package:iug_finder/features/admin/lost_and_my_lost/logic/cubit/lost_and_my_founa_cubit.dart';
 import 'package:iug_finder/features/admin/lost_and_my_lost/lost_and_my_lost.dart';
+import 'package:iug_finder/features/admin/match_screen/logic/cubit/matching_cubit.dart';
+import 'package:iug_finder/features/admin/match_screen/ui/widget/matching_screen.dart';
 import 'package:iug_finder/features/contact_us_screen/contact_us.dart';
 import 'package:iug_finder/features/create_report.dart/logic/cubit/create_report_cubit.dart';
 import 'package:iug_finder/features/create_report.dart/ui/create_report.dart';
@@ -106,6 +108,12 @@ class AppRouter {
                   create: (context) =>
                       LostAndMyLostCubit(getIt())..getMyReports(),
                   child: const MyLostTabScreen(),
+                ));
+      case Routers.matchingScreenAdmin:
+        return MaterialPageRoute(
+            builder: (context) => BlocProvider(
+                  create: (context) => MatchingCubit(getIt())..getAllMatching(),
+                  child: const MatchingScreen(),
                 ));
       default:
         return null;

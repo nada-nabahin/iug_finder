@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iug_finder/core/helpers/extension.dart';
 import 'package:iug_finder/features/login/logic/cubit/login_cubit.dart';
 import 'package:iug_finder/features/login/logic/cubit/login_state.dart';
+import 'package:iug_finder/main.dart';
 
 import '../../../../core/routing/routers.dart';
 import '../../../../core/theming/styles.dart';
@@ -23,8 +24,10 @@ class LoginBlocListener extends StatelessWidget {
                 builder: (context) =>
                     const Center(child: CircularProgressIndicator()));
           },
-          success: (loginResponse) {
+          success: (loginResponse) async {
             context.pop();
+            await checkIfLoggedInUser();
+
             context.pushNamed(Routers.navigationBar);
           },
           error: (error) {

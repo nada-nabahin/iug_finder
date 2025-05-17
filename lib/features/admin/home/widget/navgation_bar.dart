@@ -14,7 +14,7 @@ Widget navigationBar(BuildContext context) {
       return NavigationBar(
         selectedIndex: state.selectedIndex,
         onDestinationSelected: (index) {
-          context.read<NavigationBarCubit>().updateIndex(index);
+          context.read<NavigationBarAdminCubit>().updateIndex(index);
         },
         height: 65.h,
         labelBehavior:
@@ -33,11 +33,11 @@ Widget navigationBar(BuildContext context) {
                 const Icon(Icons.home, color: ColorsManager.moreLightBlue),
           ),
           NavigationDestination(
-            icon: const Icon(Icons.person_outline,
+            icon: const Icon(Icons.join_inner_outlined,
                 color: ColorsManager.moreLightBlue),
-            label: tr('profile'),
-            selectedIcon:
-                const Icon(Icons.person, color: ColorsManager.moreLightBlue),
+            label: "التطايقات",
+            selectedIcon: const Icon(Icons.join_inner,
+                color: ColorsManager.moreLightBlue),
           ),
         ],
         animationDuration: const Duration(milliseconds: 300),

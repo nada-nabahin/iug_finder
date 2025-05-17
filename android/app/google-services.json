@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "617557421609",
+    "project_id": "iug-finder",
+    "storage_bucket": "iug-finder.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617557421609:android:765fd1430205ff4315b638",
+        "android_client_info": {
+          "package_name": "com.example.iug_finder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYvKPzf6qU6L1X1PZ6khKlI-8LC53eBTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,8 +2,11 @@ import 'package:dio/dio.dart';
 
 import 'package:get_it/get_it.dart';
 import 'package:iug_finder/core/networking/dio_factory.dart';
+import 'package:iug_finder/features/admin/home/logic/cubit/navigation_bar_cubit.dart';
 import 'package:iug_finder/features/admin/lost_and_my_lost/data/repos/all_lost_repo.dart';
 import 'package:iug_finder/features/admin/lost_and_my_lost/logic/cubit/lost_and_my_founa_cubit.dart';
+import 'package:iug_finder/features/admin/match_screen/data/repos/matching_repo.dart';
+import 'package:iug_finder/features/admin/match_screen/logic/cubit/matching_cubit.dart';
 import 'package:iug_finder/features/create_report.dart/data/repo/create_report_repos.dart';
 import 'package:iug_finder/features/create_report.dart/logic/cubit/create_report_cubit.dart';
 import 'package:iug_finder/features/home/logic/cubit/navigation_bar_cubit.dart';
@@ -46,4 +49,11 @@ Future<void> setupGetIt() async {
       .registerLazySingleton<AllLostAdminRepo>(() => AllLostAdminRepo(getIt()));
   getIt.registerFactory<AllLostAndFoundCubit>(
       () => AllLostAndFoundCubit(getIt())..getAllLost());
+
+  getIt.registerFactory<NavigationBarAdminCubit>(
+      () => NavigationBarAdminCubit());
+
+  //matching
+  getIt.registerLazySingleton<MatchingRepo>(() => MatchingRepo(getIt()));
+  getIt.registerFactory<MatchingCubit>(() => MatchingCubit(getIt()));
 }

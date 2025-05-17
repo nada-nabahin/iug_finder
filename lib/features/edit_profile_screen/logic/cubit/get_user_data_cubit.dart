@@ -135,6 +135,10 @@ class GetUserDataCubit extends Cubit<GetUserDataState> {
     await SharedPrefHelper.removeData(SharedPrefKeys.userToken);
     await SharedPrefHelper.removeData(SharedPrefKeys.userID);
     await SharedPrefHelper.removeData(SharedPrefKeys.userName);
+    await SharedPrefHelper.removeData(SharedPrefKeys.role);
+
     await SharedPrefHelper.clearAllSecuredData();
+    await SharedPrefHelper.removeData(SharedPrefKeys.role);
+    await SharedPrefHelper.clearAllData();
   }
 }

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 
 import 'package:iug_finder/core/networking/api_constanta.dart';
+import 'package:iug_finder/features/admin/match_screen/data/models/matchine_model_response.dart';
 import 'package:iug_finder/features/create_report.dart/data/models/create_report_response.dart';
 import 'package:iug_finder/features/create_report.dart/data/models/edit_report_response.dart';
 import 'package:iug_finder/features/edit_profile_screen/data/model/edit_profile_response_model.dart';
@@ -84,4 +85,7 @@ abstract class ApiService {
 
   @GET(ApiConstanta.allFound)
   Future<AllLostBodyResponseModel> getAllFound();
+
+  @GET(ApiConstanta.matching)
+  Future<MatchingModelResponse> getMatching();
 }

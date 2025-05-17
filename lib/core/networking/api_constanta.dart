@@ -12,6 +12,7 @@ class ApiConstanta {
   static const String editUserData = '/auth/user';
   //admin
   static const String allFound = '/reports/existing';
+  static const String matching = '/reports/matched-reports';
 }
 
 class ApiErrors {

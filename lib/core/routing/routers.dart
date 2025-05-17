@@ -13,4 +13,5 @@ class Routers {
   static const String editReportScreen = '/editReportScreen';
   static const String navigationBarAdmin = '/navigationBarAdmin';
   static const String lostScreenAdmin = '/lostScreen';
+  static const String matchingScreenAdmin = '/matchingScreenAdmin';
 }

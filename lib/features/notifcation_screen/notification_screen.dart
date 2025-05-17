@@ -19,14 +19,14 @@ class NotificationScreen extends StatelessWidget {
           child: Directionality(
               textDirection: TextDirection.rtl,
               child: ListView.builder(
-                itemCount: 20, // list.length (api)
+                itemCount: 1, // list.length (api)
                 shrinkWrap: true,
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
                     padding: EdgeInsets.only(bottom: 20.h),
                     child: const NotificationInfoCard(
-                      label: 'مكتب الأمانات',
-                      value: ' غرضك',
+                      label: 'يرجى منك تسليم الغرض لموظف الامانات في مبنى 1',
+                      value: ' س',
                       iconPath: 'assets/images/user_cicrle.png',
                     ),
                   );

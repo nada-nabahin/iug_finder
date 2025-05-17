@@ -11,6 +11,7 @@ class SignupRequestBody {
   final String phone;
   final String password;
   final String confirmPassword;
+  final String photo;
 
   SignupRequestBody({
     required this.userName,
@@ -19,6 +20,7 @@ class SignupRequestBody {
     required this.universityID,
     required this.password,
     required this.confirmPassword,
+    required this.photo,
   });
 
   Map<String, dynamic> toJson() => _$SignupRequestBodyToJson(this);

@@ -30,9 +30,33 @@ class EditProfileScreen extends StatelessWidget {
             IconButton(
               icon: const Icon(Icons.logout, color: Colors.red),
               onPressed: () async {
-                await context
-                    .read<GetUserDataCubit>()
-                    .deleteTokenFromSharedPreferences();
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: const Text('تأكيد تسجيل الخروج'),
+                        content:
+                            const Text('هل أنت متأكد أنك تريد تسجيل الخروج؟'),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: const Text('إلغاء'),
+                          ),
+                          TextButton(
+                            onPressed: () async {
+                              await context
+                                  .read<GetUserDataCubit>()
+                                  .deleteTokenFromSharedPreferences();
+                              Navigator.of(context).pop();
+
+                              context
+                                  .pushNamedAndRemoveUntil(Routers.loginScreen);
+                            },
+                            child: const Text('تسجيل الخروج'),
+                          ),
+                        ],
+                      );
+                    });
               },
             ),
           ],
@@ -149,7 +173,8 @@ class EditProfileScreen extends StatelessWidget {
       );
     }
 
-    if (profileResponse?.user.photo != null) {
+    if (profileResponse?.user.photo != null &&
+        profileResponse.user.photo.isNotEmpty) {
       return Image.network(
         'http://11.11.11.74:3000/uploads/${profileResponse.user.photo}',
         width: 130.r,
@@ -157,6 +182,21 @@ class EditProfileScreen extends StatelessWidget {
         fit: BoxFit.cover,
         errorBuilder: (_, __, ___) => _buildDefaultAvatar(),
       );
+    } else if (profileResponse?.user.photo == null) {
+      return Image.file(
+        File(cubit.imagePath!),
+        width: 130.r,
+        height: 130.r,
+        fit: BoxFit.cover,
+      );
+    } else if (profileResponse?.user.photo == null) {
+      return Image.network(
+        'http://11.11.11.74:3000/uploads/1747485964673-448835708.jpg',
+        width: 130.r,
+        height: 130.r,
+        fit: BoxFit.cover,
+      );
+      ;
     }
 
     return _buildDefaultAvatar();
@@ -164,7 +204,7 @@ class EditProfileScreen extends StatelessWidget {
 
   Widget _buildDefaultAvatar() {
     return Image.network(
-      'http://11.11.11.74:3000/uploads/1747136385597-442454750.jpg',
+      'http://11.11.11.74:3000/uploads/1747485964673-448835708.jpg',
       width: 130.r,
       height: 130.r,
       fit: BoxFit.cover,
