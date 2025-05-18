@@ -18,7 +18,7 @@
 - Flutter (UI)
 - Dart (Programming Language)
 - REST API (Backend Communication)
-- Riverpod (State Management)
+- Bloc (State Management)
 - Dio (Networking)
 
 ---
