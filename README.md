@@ -96,7 +96,10 @@ assets/
 
 ## 👥 Contributors
 
-- Nada Nabahin
+- Nada
+- Ghayda
+- Afnan
+- Dalia
 
 ---
 
