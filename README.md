@@ -1,26 +1,103 @@
-# iug_finder
+# 📱 IUG Finder – Lost & Found App for Islamic University of Gaza
 
-A new Flutter project.
 
-Overview
-Relevant source files
-assets/translations/ar.json
-lib/core/di/dependency_injection.dart
-lib/core/networking/api_service.dart
-lib/core/routing/app_router.dart
-This document provides an introduction to the IUG Finder application, its purpose, and high-level architecture. IUG Finder is a Flutter mobile application designed to help users manage lost and found items within an educational institution (Islamic University of Gaza). The application follows a structured architecture with distinct layers and utilizes modern Flutter development patterns.
+## 📌 Overview
 
-Purpose and Scope
-IUG Finder enables users to:
+**IUG Finder** is a mobile application built to help students and staff at the Islamic University of Gaza manage lost and found items efficiently.
 
-Report lost items
-Find items that others have reported as found
-Manage personal reports and profiles
-Administer reports (for admin users)
-For detailed information about specific components, see Architecture, Features, and UI Components.
+## 🎯 Purpose
 
-System Architecture Overview
-IUG Finder follows a layered architecture with clear separation of concerns. The application is organized into three primary layers:
-[Uploading nada-nabahin_iug_finder _ DeepWiki.html…]()
+- Easily **report** lost/found items.
+- **Browse** reported items.
+- **Contact** the item owner/finder directly.
+
+---
+
+## 🔧 Technologies Used
+
+- Flutter (UI)
+- Dart (Programming Language)
+- REST API (Backend Communication)
+- Riverpod (State Management)
+- Dio (Networking)
+
+---
+
+## 🧱 App Architecture
+
+Clean modular structure:
+
+- **Data Layer**: API handling
+- **Domain Layer**: Business logic
+- **Presentation Layer**: User interface
+- ![image](https://github.com/user-attachments/assets/81ad576b-98a8-4f50-adfe-56d3cf940e78)
+
+---
+
+## ✨ Features
+
+- 🌐 Multi-language (Arabic supported)
+- 🔌 Dependency Injection
+- 🔁 REST API with Dio
+- 🧭 Navigation using go_router
+- 🧑‍🎨 Clean UI
+
+---
+
+## 📁 Project Structure
+lib/
+
+├── core/
+
+│ ├── di/
+
+│ ├── networking/
+
+│ └── routing/
+
+├── features/
+
+│ ├── lost_items/
+
+│ ├── found_items/
+
+│ └── widget/
+
+assets/
+
+└── translations/
+
+---
+## 📁Code Organization and Feature Mapping
+- The following diagram illustrates how the major features in the application map to code structures:
+- ![image](https://github.com/user-attachments/assets/6e4136de-ac84-46ea-9c89-25fe069afc21)
+
+---
+## API Communication Flow
+- The application communicates with a backend server through a structured API layer:
+- ![image](https://github.com/user-attachments/assets/3603961b-7108-41bc-9f9f-75f7ee8010c5)
+
+---
+## Dependency Injection System
+- The application uses GetIt as a service locator for dependency injection. Here's how dependencies are registered and used:
+- ![image](https://github.com/user-attachments/assets/fbd164d2-9816-479f-a5d5-72fd84159d1a)
+
+
+---
+
+## 📂 Source File References
+
+- [ar.json – Arabic Translation](https://github.com/nada-nabahin/iug_finder/blob/main/assets/translations/ar.json)
+- [Dependency Injection](https://github.com/nada-nabahin/iug_finder/blob/main/lib/core/di/dependency_injection.dart)
+- [API Service](https://github.com/nada-nabahin/iug_finder/blob/main/lib/core/networking/api_service.dart)
+- [Routing](https://github.com/nada-nabahin/iug_finder/blob/main/lib/core/routing/app_router.dart)
+
+---
+
+## 👥 Contributors
+
+- Nada Nabahin
+
+---
 
 
